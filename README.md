@@ -8,12 +8,15 @@ A free open-sourced templating framework for modern Java applications.
 它基于组合模式简化了用户界面的开发。
 
 Apache Tiles is a template composition framework. Tiles was originally built to simplify the development of web application user interfaces, but it is no longer restricted to the JavaEE web environment.
+
 Apache Tiles 是一个模板组合框架，tiles最初构建是为了简化web用户界面开发，但是它现在已经不再限于javaEE web环境了。
 
 For complex web sites it remains the easiest and most elegant way to work alongside any MVC technology.
+
 即使是复杂的网站，它仍然可以与任何MVC技术一起以简单和优美的方式开发。
 
 Tiles allows authors to define page fragments which can be assembled into a complete pages at runtime. 
+
 tiles允许开发者定义页面片段，使其能够在运行时组装成一个复杂的页面。
 
 These fragments, or tiles, can be used as simple includes in order to reduce the duplication of common page elements or 
