@@ -5,6 +5,41 @@
 
 	<display-name>lmtoo</display-name>
 
+	<!-- 初始化tiles框架，加载definition定义 -->
+	<listener>
+		<listener-class>org.apache.tiles.extras.complete.CompleteAutoloadTilesListener</listener-class>
+	</listener>
+
+	<!-- 以装饰模式拦截请求，并将返回的页面自动装饰到definition的attribute上 -->
+	<filter>
+		<filter-name>Tiles Decoration Filter</filter-name>
+		<filter-class>org.apache.tiles.web.util.TilesDecorationFilter</filter-class>
+		<init-param>
+			<param-name>definition</param-name>
+			<param-value>myapp.html</param-value>
+		</init-param>
+		<init-param>
+			<param-name>attribute-name</param-name>
+			<param-value>body</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>Tiles Decoration Filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- 自动拦截以tiles结尾的请求，并解析请求路径为definition的name，然后呈现出definition的页面 -->
+	<servlet>
+		<servlet-name>Tiles Dispatch Servlet</servlet-name>
+		<servlet-class>org.apache.tiles.web.util.TilesDispatchServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Tiles Dispatch Servlet</servlet-name>
+		<url-pattern>*.tiles</url-pattern>
+	</servlet-mapping>
+
+
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
 		<url-pattern>/static/*</url-pattern>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="myapp.html" template="/layouts/html.jsp">
+		<put-attribute name="title" value="Tiles tutorial homepage" />
+	</definition>
+
+	<!-- Named subdefinitions -->
+	<definition name="myapp.homepage.classic" template="/layouts/classic.jsp">
+		<put-attribute name="title" value="Tiles tutorial homepage" />
+		<put-attribute name="header" value="/fragments/header.jsp" />
+		<put-attribute name="menu" value="/fragments/menu.jsp" />
+		<put-attribute name="footer" value="/fragments/footer.jsp" />
+		<put-attribute name="body" value="myapp.homepage.body" />
+	</definition>
+
+	<definition name="myapp.homepage.body" template="/layouts/body.jsp">
+		<put-attribute name="searchBar" value="/fragments/search-bar.jsp" />
+		<put-attribute name="table" value="/fragments/table.jsp" />
+	</definition>
+
+	<!-- Anonymous nested definitions -->
+	<definition name="myapp.homepage.anonymous" template="/layouts/classic.jsp">
+		<put-attribute name="title" value="Tiles tutorial homepage" />
+		<put-attribute name="header" value="/fragments/header.jsp" />
+		<put-attribute name="menu" value="/fragments/menu.jsp" />
+		<put-attribute name="footer" value="/fragments/footer.jsp" />
+		<put-attribute name="body">
+			<definition template="/layouts/body.jsp">
+				<put-attribute name="searchBar" value="/fragments/search-bar.jsp" />
+				<put-attribute name="table" value="/fragments/table.jsp" />
+			</definition>
+		</put-attribute>
+	</definition>
+
+	<!-- Cascaded attributes -->
+	<definition name="myapp.homepage.cascaded" template="/layouts/classic.jsp">
+		<put-attribute name="title" value="Tiles tutorial homepage" />
+		<put-attribute name="header" value="/fragments/header.jsp" />
+		<put-attribute name="menu" value="/fragments/menu.jsp" />
+		<put-attribute name="footer" value="/fragments/footer.jsp" />
+		<put-attribute name="body" value="/layouts/body.jsp" />
+		<put-attribute name="searchBar" value="/fragments/search-bar.jsp"
+			cascade="true" />
+		<put-attribute name="table" value="/fragments/table.jsp"
+			cascade="true" />
+	</definition>
+
+	<!-- Abstract definition -->
+	<definition name="myapp.homepage.abstract" template="/layouts/classic.jsp">
+		<put-attribute name="title" value="Tiles tutorial homepage" />
+		<put-attribute name="header" value="/fragments/header.jsp" />
+		<put-attribute name="menu" value="/fragments/menu.jsp" />
+		<put-attribute name="footer" value="/fragments/footer.jsp" />
+	</definition>
+
+	<!-- Definition extension -->
+	<definition name="myapp.homepage.concrete" extends="myapp.homepage.abstract">
+		<put-attribute name="title" value="Tiles tutorial concrete homepage" />
+		<put-attribute name="body" value="myapp.homepage.body" />
+	</definition>
+
+	<!-- Template and attribute override -->
+	<definition name="myapp.homepage.alternate" extends="myapp.homepage.concrete"
+		template="/layouts/alternate.jsp" />
+
+	<definition name="myapp.homepage.override" extends="myapp.homepage.concrete">
+		<put-attribute name="menu" value="/fragments/header.jsp" />
+	</definition>
+
+	<!-- list attributes -->
+	<definition name="myapp.homepage.list" template="/layouts/list.jsp">
+		<put-list-attribute name="items">
+			<add-attribute value="/fragments/header.jsp" />
+			<add-attribute value="/fragments/footer.jsp" />
+		</put-list-attribute>
+	</definition>
+
+	<!-- List attribute inheritance -->
+	<definition name="myapp.homepage.list.extended" extends="myapp.homepage.list">
+		<put-list-attribute name="items" inherit="true">
+			<add-attribute value="/fragments/menu.jsp" />
+		</put-list-attribute>
+	</definition>
+
+	<definition name="preparer.definition" preparer="cn.lmtoo.tiles.test.TestViewPreparer"
+		extends="myapp.homepage.concrete">
+	</definition>
+</tiles-definitions>
