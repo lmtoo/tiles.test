@@ -7,11 +7,11 @@
 
 	<!-- 初始化tiles框架，加载definition定义 -->
 	<listener>
-		<listener-class>org.apache.tiles.extras.complete.CompleteAutoloadTilesListener</listener-class>
+		<listener-class>org.apache.tiles.web.startup.simple.SimpleTilesListener</listener-class>
 	</listener>
 
 	<!-- 以装饰模式拦截请求，并将返回的页面自动装饰到definition的attribute上 -->
-	<filter>
+	<!-- <filter>
 		<filter-name>Tiles Decoration Filter</filter-name>
 		<filter-class>org.apache.tiles.web.util.TilesDecorationFilter</filter-class>
 		<init-param>
@@ -26,7 +26,7 @@
 	<filter-mapping>
 		<filter-name>Tiles Decoration Filter</filter-name>
 		<url-pattern>/*</url-pattern>
-	</filter-mapping>
+	</filter-mapping> -->
 
 	<!-- 自动拦截以tiles结尾的请求，并解析请求路径为definition的name，然后呈现出definition的页面 -->
 	<servlet>

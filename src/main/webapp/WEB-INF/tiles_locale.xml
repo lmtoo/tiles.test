@@ -3,22 +3,6 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
-	<definition name="app.html.base" template="/layouts/base.jsp">
-		<put-attribute name="title" value="Tiles tutorial homepage" />
-		<put-attribute name="header" value="/layouts/bootstrap/header.jsp"/>
-		<put-attribute name="body" value="app.html.bootstrap.default"/>
-	</definition>
-
-	<definition name="app.html.bootstrap.default" extends="app.html.base">
-		<put-attribute name="title" value="Tiles bootstrap homepage" />
-		<put-attribute name="header" value="/layouts/bootstrap/header.jsp"/>
-		<put-attribute name="body" value="app.html.bootstrap.body"/>
-	</definition>
-	
-	<definition name="app.html.bootstrap.body" template="/layouts/bootstrap/body.jsp">
-		<put-attribute name="content" value="this is the content"/>
-	</definition>
-
 	<definition name="myapp.html" template="/layouts/html.jsp">
 		<put-attribute name="title" value="Tiles tutorial homepage" />
 	</definition>
